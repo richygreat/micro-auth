@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "cbf593f6-7016-45b1-85f7-1f3ba1365537",
+		"name": "spring-oauth2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"richy\",\n\t\"password\": \"great\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9180/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9180",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "secure",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsibWljcm8iXSwidXNlcl9uYW1lIjoicm9vdCIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE1NTY2NDEyNjEsImF1dGhvcml0aWVzIjpbIlJPTEVfU1VQRVJfQURNSU4iXSwianRpIjoiZGU5MWZhMjQtY2EwOS00YTFlLTk5ZmEtNWI1MTViOWNhM2JlIiwiY2xpZW50X2lkIjoiY2xpZW50In0.t_YuqzqxQbdsC0Q3NYsvmahklnEllNmDh17jZrdVkT0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9180/api/users/61100bdb-df57-4acd-8d7a-e6d624260313",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9180",
+					"path": [
+						"api",
+						"users",
+						"61100bdb-df57-4acd-8d7a-e6d624260313"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client Credentials",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "richy",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "great",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9180/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9180",
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
