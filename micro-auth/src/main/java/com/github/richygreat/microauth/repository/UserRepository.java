@@ -1,11 +1,10 @@
 package com.github.richygreat.microauth.repository;
 
-import java.util.Optional;
-
+import com.github.richygreat.microauth.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.github.richygreat.microauth.entity.UserEntity;
+import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<UserEntity, String> {
-	Optional<UserEntity> findByUsername(String username);
+    Optional<UserEntity> findByUsername(String username);
 }

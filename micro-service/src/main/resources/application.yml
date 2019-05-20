@@ -1,0 +1,4 @@
+server.port: 9280
+spring:
+  application:
+    name: micro-service
